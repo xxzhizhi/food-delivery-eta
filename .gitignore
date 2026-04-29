@@ -1,0 +1,25 @@
+# Byte-compiled / optimized
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+
+# Data (generated or downloaded)
+data/raw/
+data/processed/
+
+# Model artifacts
+models/saved/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/

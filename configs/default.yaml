@@ -1,0 +1,39 @@
+# Experiment Configuration
+# ========================
+
+data:
+  raw_path: "data/raw/delivery_data.csv"
+  processed_path: "data/processed/"
+  target_col: "delivery_duration_minutes"
+  split_strategy: "time"        # "time" or "random"
+  test_size: 0.15
+  val_size: 0.15
+  random_state: 42
+
+features:
+  time_col: "created_at"
+
+model:
+  type: "lightgbm"              # "lightgbm", "xgboost", "baseline"
+  params:
+    objective: "regression"
+    metric: "mae"
+    boosting_type: "gbdt"
+    learning_rate: 0.05
+    num_leaves: 63
+    max_depth: -1
+    min_child_samples: 20
+    feature_fraction: 0.8
+    bagging_fraction: 0.8
+    bagging_freq: 5
+    verbose: -1
+    seed: 42
+  num_boost_round: 1000
+  early_stopping_rounds: 50
+
+evaluation:
+  tolerance_min: 5.0
+
+output:
+  model_dir: "models/saved/"
+  report_dir: "docs/"
